@@ -1,0 +1,57 @@
+body{
+  background-color: white;
+  background-image: url("imgs/Megaback_81.png");
+  background-position: 99% 32%;
+  background-repeat: no-repeat;
+  background-size: auto;
+  background-attachment: fixed;
+  padding-top: 5px;
+  margin-top: 5px;
+}
+
+
+h1{
+  padding-left: 30px;
+  padding-top: 5px;
+  margin: auto;
+  font-family: 'times new roman', serif;
+  font-style: italic;
+  font-weight: lighter;
+  font-size: 100px; color: black;
+}
+
+ul li, a, h2 {
+  font-family: 'Abril Fatface', cursive; color: red;
+  font-weight: lighter;
+  font-style: italic;
+  font-size: 20px;
+  list-style: none;
+  display: inline-block;
+  text-decoration: none;
+  margin: 4px;
+  padding: 5px;
+}
+
+p{
+  font-family: 'Playfair Display', serif;
+  font-weight:lighter; color: white;
+  font-style:;
+  font-size: 22px;
+  padding: 15px;
+  margin: 30px;
+  width: 90%;
+  height: 60%
+
+}
+/*.tabContent ul li img {
+  display: inline-block;
+  float: right;
+}*/
+
+.tabContent{
+  background-color: black;opacity: .95 ;
+  border: 10px 10px; color: white;
+  width: 60%; height: 100%;
+  padding: 15px;
+  margin: 10px;
+}
