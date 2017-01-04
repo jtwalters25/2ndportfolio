@@ -1,27 +1,29 @@
 // 'use strict';
 
-var projects = [];
+var articles = [];
 
-function Project (options) {
+function Article (options) {
 
   this.title = options.title;
   this.category = options.category;
-  this.projectUrl = options.projectsUrl;
+  this.projectUrl = options.projectUrl;
   this.publishedOn = options.publishedOn;
   this.body = options.body;
 }
 
-Project.prototype.toHtml = function() {
-  var $newProject = $('project.template').clone();
-  $newProject.attr('category', this.category);
-  $newProject.find('h1 a').html(this.title).attr('href', this.projectUrl);
-  $newProject.find('.project-body').html(this.body);
-  $newProject.attr('publishedOn', this.publishedOn);
-  $newProject.find('time[pubdate]').attr('title', this.publishedOn);
-  $newProject.find('time').text('about ' + parseInt((new Date() - new Date(this.publishedOn))/60/60/24/1000) + ' days ago');
+Article.prototype.toHtml = function() {
+  var $newArticle = $('article.template').clone();
+  $newArticle.attr('data-category', this.category);
+  $newArticle.find('h4 a')
+            .html(this.title)
+            .attr('href', this.projectUrl);
+  $newArticle.find('.project-body').html(this.body);
+  $newArticle.attr('publishedOn', this.publishedOn);
+  $newArticle.find('time[pubdate]').attr('title', this.publishedOn);
+  $newArticle.find('time').text('exactly ' + parseInt((new Date() - new Date(this.publishedOn))/60/60/24/1000) + ' days ago');
 
-  $newProject.removeClass('template');
-  return $newProject;
+  $newArticle.removeClass('template');
+  return $newArticle;
 };
 
 projectData.sort(function(currentObject, nextObject) {
@@ -29,9 +31,9 @@ projectData.sort(function(currentObject, nextObject) {
 });
 
 projectData.forEach(function(ele) {
-  projects.push(new Project(ele));
+  articles.push(new Article(ele));
 });
 
-projects.forEach(function(project) {
-  $('#projects').append(project.toHtml());
+articles.forEach(function(article) {
+  $('#projects').append(article.toHtml());
 });
