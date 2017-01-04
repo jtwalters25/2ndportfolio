@@ -1,30 +1,37 @@
-'use strict'
-var projects = [
-  {
-    title: 'Linked Up',
-    category:'Networking',
-    projectUrl:'https://linkedupdep.herokuapp.com',
-    publishedOn: '2016-11-06',
-    body: 'Meet up with potential business partners, employers or employees using a combination of linkedin and meet up.com apis. Link up based on topic, location and dates. Find people who share a passion with you and you never know you could end up growing your network or landing a great job or business partner from face to face professional interactions.'
-  },
-  {
-    title:  'PNW Taste',
-    category: 'Food',
-    projectUrl: 'https://github.com/jtwalters25/PNW-Taste',
-    publishedOn: '2016-11-05',
-    body: 'Pacific Northwest Taste Restaurant Site: A website for a new restaurant that serves Pacific Northwest cusine and delicious drinks.  Vanilla JS is used in this code with OOP, functions and constructors.  Go make a reservation today on the reservation page or find out the Happy Hour drink special with one click!'
-  },
-  {
-    title: 'Guessing Game',
-    category: 'Gaming',
-    projectUrl:'https://jeremiahsguessinggame.herokuapp.com/',
-    publishedOn:'2016-12-10',
-    body: 'Guess the correct number'
-  },
-  {
-    title: 'Get There',
-    category: 'Transportation',
-    publishedOn: '2016-12-07',
-    body: 'This navigation gets you there with routes that us alleys and backstreets that only a local or Seattle native would know'
-  }
-]
+// 'use strict';
+
+var projects = [];
+
+function Project (options) {
+
+  this.title = options.title;
+  this.category = options.category;
+  this.projectUrl = options.projectsUrl;
+  this.publishedOn = options.publishedOn;
+  this.body = options.body;
+}
+
+Project.prototype.toHtml = function() {
+  var $newProject = $('project.template').clone();
+  $newProject.attr('category', this.category);
+  $newProject.find('h1 a').html(this.title).attr('href', this.projectUrl);
+  $newProject.find('.project-body').html(this.body);
+  $newProject.attr('publishedOn', this.publishedOn);
+  $newProject.find('time[pubdate]').attr('title', this.publishedOn);
+  $newProject.find('time').text('about ' + parseInt((new Date() - new Date(this.publishedOn))/60/60/24/1000) + ' days ago');
+
+  $newProject.removeClass('template');
+  return $newProject;
+};
+
+projectData.sort(function(currentObject, nextObject) {
+  return (new Date(nextObject.publishedOn)) - (new Date(currentObject.publishedOn));
+});
+
+projectData.forEach(function(ele) {
+  projects.push(new Project(ele));
+});
+
+projects.forEach(function(project) {
+  $('#projects').append(project.toHtml());
+});
