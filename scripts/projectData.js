@@ -19,7 +19,7 @@ var projectData = [
     category: 'Gaming',
     projectUrl:'https://jeremiahsguessinggame.herokuapp.com/',
     publishedOn:'2016-10-10',
-    body: '<p>Guess the correct number</p>'
+    body: '<p>Guess a number between 0 and 100.  If you are right you will be alerted.  You will recieve messages indicating if you are too low or too high</p>'
   },
   {
     title: 'Get There',

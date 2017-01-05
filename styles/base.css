@@ -1,6 +1,6 @@
 body{
   background-color: white;
-  /*background-image: url("imgs/Megaback_81.png");*/
+  background-image: url("imgs/Megaback_81.png");
   background-position: 99% 32%;
   background-repeat: no-repeat;
   background-size: auto;
@@ -34,6 +34,7 @@ h4, h4 a{
   font-weight: bolder;
   font-size: 39px;
   margin-bottom: 4px;
+
 }
 
 nav ul li a{
@@ -92,6 +93,20 @@ p::first-letter {
   margin: 10px;
   margin-left: 60px;
 }
+
+.theSkills ul {
+  text-align: center;
+  font-weight: bold;
+
+}
+
+
+.theSkills ul li{
+  text-align: center;
+  font-weight: bold; color: white;
+
+}
+
 
 #contact li, a {
   display: inline;
