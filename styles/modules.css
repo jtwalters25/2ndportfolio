@@ -21,12 +21,12 @@
 
 .main-nav {
   padding: 0.1em;
-
+  
 }
 
 .main-nav ul {
 
-  /*display: none;*/
+  display: none;
   padding: 0;
   list-style: none;
   clear: both;

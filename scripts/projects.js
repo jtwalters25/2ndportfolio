@@ -1,6 +1,6 @@
 // 'use strict';
 
-var articles = [];
+var allArticles = [];
 
 function Article (options) {
 
@@ -14,6 +14,7 @@ function Article (options) {
 Article.prototype.toHtml = function() {
   var $newArticle = $('article.template').clone();
   $newArticle.attr('data-category', this.category);
+  $newArticle.attr('data-title', this.title);
   $newArticle.find('h4 a')
             .html(this.title)
             .attr('href', this.projectUrl);
@@ -31,9 +32,9 @@ projectData.sort(function(currentObject, nextObject) {
 });
 
 projectData.forEach(function(ele) {
-  articles.push(new Article(ele));
+  allArticles.push(new Article(ele));
 });
 
-articles.forEach(function(article) {
+allArticles.forEach(function(article) {
   $('#projects').append(article.toHtml());
 });
