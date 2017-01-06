@@ -3,92 +3,84 @@
 var mainView = {};
 
 mainView.populateFilters = function() {
-  $('article').not('.template').each(function() {
-    var theTitle, optionTag, category;
-    theTitle = $(this).find('h4 a').text();
-    optionTag = '<option value="' + theTitle + '">' + theTitle + '</option>';
-    if ($('#title-filter option[value="' + theTitle + '"]').length === 0) {
+  $('article').each(function() {
+    if (!$(this).hasClass('template')) {
+      var val = $(this).find('h4 a').text();
+      var optionTag = `<option value="${val}">${val}</option>`;
       $('#title-filter').append(optionTag);
-    }
-    else {
-      $('.template').hide();
-    }
-    category = $(this).attr('data-category');
-    optionTag = '<option value="' + category + '">' + category + '</option>';
-    if ($('#category-filter option[value="' + category + '"]').length === 0) {
-      $('#category-filter').append(optionTag);
-    }
-    else {
-      $('.template').hide();
+
+      val = $(this).attr('data-category');
+      optionTag = `<option value="${val}">${val}</option>`;
+      if ($(`#category-filter option[value="${val}"]`).length === 0){
+        $('#category-filter').append(optionTag);
+      }
     }
   });
 };
 
 mainView.handleTitleFilter = function(){
   $('#title-filter').on('change', function() {
-    if ($(this).val()){
-      var $theTitle = $(this).val();
+    if ($(this).val()) {
       $('article').hide();
-      $('article[data-title="' + $theTitle + '"]').fadeIn();
+      $(`article[data-title="${$(this).val()}"]`).fadeIn();
     } else {
-      $('.template').hide();
+      $('article').fadeIn();
+      $('article.template').hide();
     }
     $('#category-filter').val('');
   });
-}
+};
 
 mainView.handleCategoryFilter = function(){
   $('#category-filter').on('change', function() {
     if ($(this).val()){
-      var $category = $(this).val();
       $('article').hide();
-      $('article[data-category="' + $category + '"]').fadeIn();
+      $(`article[data-category="${$(this).val()}"]`).fadeIn();
     } else {
-      $('.template').hide();
+      $('article').fadeIn();
+      $('article.template').hide();
     }
     $('#title-filter').val('');
   });
 }
 
 mainView.populateBlogFilters = function() {
-  $('article').not('.template').each(function() {
-    var theTitle, optionTag, blogcategory;
-    theTitle = $(this).find('h5').text();
-    optionTag = '<option value="' + theTitle + '">' + theTitle + '</option>';
-    if ($('#blogTitle-filter option[value="' + theTitle + '"]').length === 0) {
+  $('article').each(function() {
+    if (!$(this).hasClass('template')) {
+      var val = $(this).find('h5').text();
+      var optionTag = `<option value="${val}">${val}</option>`;
       $('#blogTitle-filter').append(optionTag);
-    }
-    blogcategory = $(this).attr('data-blogcategory');
-    optionTag = '<option value="' + blogcategory + '">' + blogcategory + '</option>';
-    if ($('#blogCategory-filter option[value="' + blogcategory + '"]').length === 0) {
-      $('#blogCategory-filter').append(optionTag);
-    }
-    else {
-      $('.template').hide();
+
+      val = $(this).attr('data-blogcategory');
+      optionTag = `<option value="${val}">${val}</option>`;
+      if ($(`#blogCategory-filter option[value="${val}"]`).length === 0) {
+        $('#blogCategory-filter').append(optionTag);
+      }
     }
   });
 };
 
 mainView.handleBlogTitleFilter = function(){
   $('#blogTitle-filter').on('change', function() {
-    if ($(this).val()){
-      var $blogTitle = $(this).val();
+    if ($(this).val()) {
       $('article').hide();
-      $('article[data-title="' + $blogTitle + '"]').fadeIn();
+      $(`article[data-title="${$(this).val()}"]`).fadeIn();
     } else {
-      $('.template').hide();
+      $('article').fadeIn();
+      $('article.template').hide();
     }
     $('#blogCategory-filter').val('');
   });
-}
+};
+
 mainView.handleBlogCategoryFilter = function(){
   $('#blogCategory-filter').on('change', function() {
     if ($(this).val()){
-      var $blogCategory = $(this).val();
       $('article').hide();
-      $('article[data-category="' + $blogCategory + '"]').fadeIn();
+      $(`article[data-blogcategory="${$(this).val()}"]`).fadeIn();
     } else {
-      $('.template').hide();
+      $('article').fadeIn();
+      $('article.template').hide();
     }
     $('#blogTitle-filter').val('');
   });

@@ -21,7 +21,7 @@
 
 .main-nav {
   padding: 0.1em;
-  
+
 }
 
 .main-nav ul {
@@ -49,7 +49,7 @@
 }
 
 .template {
-  display: none;
+  display: block;
 }
 
 .byline {

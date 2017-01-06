@@ -29,6 +29,10 @@ h3{
   margin: 2px;
 }
 
+img{
+  max-width: 100%;
+}
+
 h5, h4, h4 a{
   text-align: center;
   font-family: 'Dancing Script', cursive;
@@ -102,6 +106,10 @@ p::first-letter {
   margin-bottom: 10px
   margin-left: 60px;
 
+}
+
+.byline{
+  text-align: center;
 }
 
 .theSkills ul {
