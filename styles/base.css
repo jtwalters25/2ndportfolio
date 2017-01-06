@@ -29,7 +29,7 @@ h3{
   margin: 2px;
 }
 
-h4, h4 a{
+h5, h4, h4 a{
   text-align: center;
   font-family: 'Dancing Script', cursive;
   font-weight: bolder;
@@ -38,6 +38,13 @@ h4, h4 a{
 
 }
 
+h5 {
+text-align: center;
+font-family: 'Dancing Script', cursive;
+font-weight: bolder;
+font-size: 49px;
+margin: 4px;
+}
 nav ul li a{
   font-family: 'Abril Fatface', cursive; color: red;
   font-weight: lighter;
@@ -110,7 +117,7 @@ p::first-letter {
 
 }
 
-#filters{
+#filters, #blogFilters{
   text-align: center;
 }
 #contact li, a {

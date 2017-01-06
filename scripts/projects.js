@@ -1,4 +1,4 @@
-// 'use strict';
+'use strict';
 
 var allArticles = [];
 
@@ -21,7 +21,7 @@ Article.prototype.toHtml = function() {
   $newArticle.find('.project-body').html(this.body);
   $newArticle.attr('publishedOn', this.publishedOn);
   $newArticle.find('time[pubdate]').attr('title', this.publishedOn);
-  $newArticle.find('time').text('exactly ' + parseInt((new Date() - new Date(this.publishedOn))/60/60/24/1000) + ' days ago');
+  $newArticle.find('time').html('published' + ' ' + 'exactly ' + parseInt((new Date() - new Date(this.publishedOn))/60/60/24/1000) + ' days ago');
 
   $newArticle.removeClass('template');
   return $newArticle;
