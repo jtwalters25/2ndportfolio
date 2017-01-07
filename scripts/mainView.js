@@ -7,12 +7,14 @@ mainView.populateFilters = function() {
     if (!$(this).hasClass('template')) {
       var val = $(this).find('h4 a').text();
       var optionTag = `<option value="${val}">${val}</option>`;
-      $('#title-filter').append(optionTag);
+      if ($(`#title-filter option[value="${val}"]`).length === 0){
+        $('#title-filter').append(optionTag);
 
-      val = $(this).attr('data-category');
-      optionTag = `<option value="${val}">${val}</option>`;
-      if ($(`#category-filter option[value="${val}"]`).length === 0){
-        $('#category-filter').append(optionTag);
+        val = $(this).attr('data-category');
+        optionTag = `<option value="${val}">${val}</option>`;
+        if ($(`#category-filter option[value="${val}"]`).length === 0){
+          $('#category-filter').append(optionTag);
+        }
       }
     }
   });
@@ -49,12 +51,14 @@ mainView.populateBlogFilters = function() {
     if (!$(this).hasClass('template')) {
       var val = $(this).find('h5').text();
       var optionTag = `<option value="${val}">${val}</option>`;
-      $('#blogTitle-filter').append(optionTag);
+      if ($(`#blogTitle-filter option[value="${val}"]`).length === 0) {
+        $('#blogTitle-filter').append(optionTag);
 
-      val = $(this).attr('data-blogcategory');
-      optionTag = `<option value="${val}">${val}</option>`;
-      if ($(`#blogCategory-filter option[value="${val}"]`).length === 0) {
-        $('#blogCategory-filter').append(optionTag);
+        val = $(this).attr('data-blogcategory');
+        optionTag = `<option value="${val}">${val}</option>`;
+        if ($(`#blogCategory-filter option[value="${val}"]`).length === 0) {
+          $('#blogCategory-filter').append(optionTag);
+        }
       }
     }
   });
