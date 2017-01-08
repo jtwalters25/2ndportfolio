@@ -12,21 +12,47 @@
   <link href="https://fonts.googleapis.com/css?family=Abril+Fatface|Playfair+Display:400i,700" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Dancing+Script" rel="stylesheet">
 
+  <script id="atemplate" type="text/x-handlebars-template">
+    <article data-title="{{ title }}" data-category="{{ category }}">
+      <header>
+        <div>
+          <h4><a href="{{ projectUrl }}">{{ title }}</a></h4>
+            <div class="byline">
+         <time pubdate datetime="{{publisheOn}}">{{publishedStatus}}</time>
+        </div>
+      </header>
+          <div>{{{ body }}}</div>
+    </article>
+  </script>
+
+  <script id="btemplate" type="text/x-handlebars-template">
+    <article data-title="{{ title }}" data-blogcategory="{{ blogcategory }}">
+      <header>
+        <div>
+          <h5>{{ title }}</h5>
+            <div class="byline">
+         <time pubdate datetime="{{publisheOn}}">{{publishedStatus}}</time>
+        </div>
+      </header>
+          <div>{{{ body }}}</div>
+    </article>
+  </script>
+
 </head>
 <header>
   <nav class="main-nav">
     <div class="icon-menu">
-    <ul>
-      <li><a href="#" class="tab" data-content="aboutMe">Home</a></li>
-      <li><a href="#" class="tab" data-content="skills">Skills</a></li>
-      <li><a href="#" class="tab" data-content="projects">Projects</a></li>
-      <li><a href="#" class="tab" data-content="blog">Blog</a></li>
-      <li><a href="#" class="tab" data-content="contact">Contact</a></li>
-    </ul>
-  </div>
+      <ul>
+        <li><a href="#" class="tab" data-content="aboutMe">Home</a></li>
+        <li><a href="#" class="tab" data-content="skills">Skills</a></li>
+        <li><a href="#" class="tab" data-content="projects">Projects</a></li>
+        <li><a href="#" class="tab" data-content="blog">Blog</a></li>
+        <li><a href="#" class="tab" data-content="contact">Contact</a></li>
+      </ul>
+    </div>
   </nav>
 
-<h1>Jeremiah Walters</h1>
+  <h1>Jeremiah Walters</h1>
 </header>
 <body>
   <div class="tabContent" id="aboutMe" >
@@ -55,59 +81,64 @@
             </li>
           </ul>
         </div>
-        <article class="template" data-category="category">
-
-          <h4><a href="">Title</a></h4>
-          <div style="text-align: center;">
-            published <time pubdate datetime="2000-01-01">Publish Time</time>
-          </div>
-
-          <section class="project-body"></section>
-        </article>
       </section>
     </main>
 
-  <div class="tabContent" id="skills">
-    <div class="theSkills">
-      <h3>Skills</h3>
-      <ul><h4><a href="#">Languages</a></h4>
-        <li>JavaScript</li>
-        <li>Angular Js</li>
-        <li>React Js</li>
-        <li>CSS</li>
+    <div class="tabContent" id="skills">
+      <div class="theSkills">
+        <h3>Skills</h3>
+        <ul><h4><a href="#">Languages</a></h4>
+          <li>JavaScript</li>
+          <li>Angular Js</li>
+          <li>React Js</li>
+          <li>CSS</li>
+        </ul>
+      </div>
+      <div class="theSkills">
+        <ul><h4><a href="#">Programming Concepts</a></h4>
+          <li>Object Oriented Programming</li>
+          <li>Optimization</li>
+          <li>Graphics (Adobe Photoshop)</li>
+          <li>Debugging</li>
+          <li>Networking</li>
+          <li>Mobile First Design</li>
+        </span>
       </ul>
     </div>
     <div class="theSkills">
-      <ul><h4><a href="#">Programming Concepts</a></h4>
-        <li>Object Oriented Programming</li>
-        <li>Optimization</li>
-        <li>Graphics (Adobe Photoshop)</li>
-        <li>Debugging</li>
-        <li>Networking</li>
-        <li>Mobile First Design</li>
+      <ul><h4><a href="#">APIs</a></h4>
+        <li>MySQL</li>
+        <li>jQuery</li>
+      </ul>
+    </div>
+    <div class="theSkills">
+      <ul><h4><a href="#">Tools</a></h4>
+        <li>Atom</li>
+        <li>Git</li>
+        <li>Heroku</li>
+        <li>Adobe Master Collection</li>
       </span>
     </ul>
   </div>
-  <div class="theSkills">
-    <ul><h4><a href="#">APIs</a></h4>
-      <li>MySQL</li>
-      <li>jQuery</li>
-    </ul>
-  </div>
-  <div class="theSkills">
-    <ul><h4><a href="#">Tools</a></h4>
-      <li>Atom</li>
-      <li>Git</li>
-      <li>Heroku</li>
-      <li>Adobe Master Collection</li>
-    </span>
-  </ul>
-</div>
 
 </div>
 <div class="tabContent" id="blog">
-  <h3 style="font-family">LiFE + TiMES BLoG</h3>
   <section class="blogs">
+  <h3>LiFE + TiMES BLoG</h3>
+  <div>
+    <ul id="blogFilters">
+      <li>
+        <select id="blogTitle-filter">
+          <option value="">-- Filter by Title --</option>
+        </select>
+      </li>
+      <li>
+        <select id="blogCategory-filter">
+          <option value="">-- Filter by Categories --</option>
+        </select>
+      </li>
+    </ul>
+  </div>
 
   </section>
 </div>
@@ -130,10 +161,13 @@
   <footer>
     &copy; 2017 J. Walters | Portfolio
   </footer>
-  <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
 
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.min.js"></script>
+  <script src="scripts/blogArticles.js" type="text/javascript"></script>
   <script src="scripts/projectData.js" type="text/Javascript"></script>
   <script src="scripts/projects.js" type="text/Javascript"></script>
+  <script src="scripts/blogs.js" type="text/Javascript"></script>
   <script src="scripts/mainView.js" type="text/Javascript"></script>
 </body>
 </html>
