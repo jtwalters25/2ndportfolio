@@ -20,6 +20,7 @@ Blogarticle.prototype.toHtml = function() {
   this.daysAgo = parseInt((new Date() - new Date(this.publishedOn))/60/60/24/1000);
   this.publishedStatus = this.publishedOn ? `published ${this.daysAgo} days ago` : '(draft)';
 
+
   return rendertemplate(this);
 };
   // var $newArticle = $('article.template').clone();
@@ -34,14 +35,14 @@ Blogarticle.prototype.toHtml = function() {
   // $newArticle.removeClass('template');
   // return $newArticle;
 
-blogArticles.sort(function(a,b) {
-  return (new Date(b.publishedOn)) - (new Date(a.publishedOn));
+blogArticles.sort(function(c,d) {
+  return (new Date(d.publishedOn)) - (new Date(c.publishedOn));
 });
 
 blogArticles.forEach(function(ele) {
   allBlogs.push(new Blogarticle(ele));
 });
 
-allBlogs.forEach(function(article) {
-  $('#blog').append(article.toHtml());
+allBlogs.forEach(function(articl) {
+  $('#blog').append(articl.toHtml());
 });
