@@ -20,6 +20,7 @@ Blogarticle.prototype.toHtml = function() {
   this.daysAgo = parseInt((new Date() - new Date(this.publishedOn))/60/60/24/1000);
   this.publishedStatus = this.publishedOn ? `published ${this.daysAgo} days ago` : '(draft)';
 
+
   return rendertemplate(this);
 };
   // var $newArticle = $('article.template').clone();

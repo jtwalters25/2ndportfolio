@@ -17,7 +17,7 @@ Article.prototype.toHtml = function() {
 
   return templaterender(this);
 };
-
+// if (typeof rawData !== 'undefined') {
 projectData.sort(function(a,b) {
   return (new Date(b.publishedOn)) - (new Date(a.publishedOn));
 });
@@ -25,7 +25,8 @@ projectData.sort(function(a,b) {
 projectData.forEach(function(ele) {
   allArticles.push(new Article(ele));
 });
+// }
 
-allArticles.forEach(function(article) {
-  $('#projects').append(article.toHtml());
+allArticles.forEach(function(a) {
+  $('#projects').append(a.toHtml());
 });
