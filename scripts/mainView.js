@@ -3,6 +3,15 @@
 var mainView = {};
 
 mainView.populateFilters = function() {
+  Articles.all.forEach(function(a) {
+    $('#projects').append(a.toHtml('#atemplate'));
+    $('#project-filter').append(a.toHtml('#project-filter-template'));
+    if($('#category-filter option:contains("' + a.category + '")').length === 0) {
+      $('#category-filter').append(a.toHtml('#category-filter-template'));
+    }
+  });
+
+
   $('article').each(function() {
     if (!$(this).hasClass('template')) {
       var val = $(this).find('h4 a').text();
@@ -90,15 +99,16 @@ mainView.handleBlogCategoryFilter = function(){
   });
 }
 mainView.handleMainNav = function () {
-  $('.tabContent, article').hide();
+  $('.tabContent, articles').hide();
   $('#aboutMe').show();
 
   $('.main-nav').on('click', '.tab',function(e){
     e.preventDefault();
     var $see = $(this).attr('data-content');
     console.log($see);
-    $('.tabContent').hide();
+    $('.tabContent, article').hide();
     $('#' + $see).show();
+
   })
 
 
@@ -131,7 +141,7 @@ mainView.create = function() {
   var formArticle;
   $('#articles').empty().show();
 
-  formArticle = new Article({
+  formArticle = new Articles({
     title: $('#article-title').val(),
     body: $('#article-body').val(),
     projectUrl: $('#article-project-url').val(),
@@ -185,12 +195,15 @@ mainView.create = function() {
 
 
 mainView.initIndexPage = function () {
-
-  mainView.populateFilters();
-  mainView.populateBlogFilters();
-  mainView.handleTitleFilter();
-  mainView.handleCategoryFilter();
-  mainView.handleBlogTitleFilter();
-  mainView.handleBlogCategoryFilter();
-  mainView.handleMainNav();
+  Articles.all.forEach(function(a) {
+    $('#projects').append(a.toHtml());
+  });
 };
+
+mainView.populateFilters();
+mainView.populateBlogFilters();
+mainView.handleTitleFilter();
+mainView.handleCategoryFilter();
+mainView.handleBlogTitleFilter();
+mainView.handleBlogCategoryFilter();
+mainView.handleMainNav();
