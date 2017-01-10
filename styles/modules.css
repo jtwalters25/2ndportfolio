@@ -42,11 +42,11 @@
   padding: .5em .06em;
 
 }
-
+/*
 #filters {
   padding: 0;
   list-style: none;
-}
+}*/
 
 .template {
   display: block;
@@ -59,6 +59,10 @@
 .byline a {
   font-weight: bold;
   text-decoration: none;
+}
+h1
+{
+font-size: 8.000em
 }
 @media screen and (min-width: 600px){
     .icon-menu {
@@ -80,4 +84,5 @@
   .icon-menu::before{
     display:none;
   }
+
 }*/

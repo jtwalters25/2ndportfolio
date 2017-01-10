@@ -20,7 +20,7 @@ Blogarticle.prototype.toHtml = function() {
   this.daysAgo = parseInt((new Date() - new Date(this.publishedOn))/60/60/24/1000);
   this.publishedStatus = this.publishedOn ? `published ${this.daysAgo} days ago` : '(draft)';
 
-
+  this.body = marked(this.body);
   return rendertemplate(this);
 };
   // var $newArticle = $('article.template').clone();
@@ -43,6 +43,6 @@ blogArticles.forEach(function(ele) {
   allBlogs.push(new Blogarticle(ele));
 });
 
-allBlogs.forEach(function(articl) {
-  $('#blog').append(articl.toHtml());
+allBlogs.forEach(function(article) {
+  $('#blog').append(article.toHtml());
 });

@@ -4,12 +4,12 @@
   <meta charset="utf-8">
   <title> Portfolio</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="vendor/styles/normalize.css">
-  <link rel="stylesheet" href="styles/icons.css">
+  <!-- <link rel="stylesheet" href="vendor/styles/normalize.css"> -->
+  <!-- <link rel="stylesheet" href="styles/icons.css"> -->
   <!-- <link rel="stylesheet" href="styles/base.css"> -->
   <link rel="stylesheet" href="styles/newbase.css">
-  <link rel="stylesheet" href="styles/layout.css">
-  <link rel="stylesheet" href="styles/modules.css">
+  <!-- <link rel="stylesheet" href="styles/layout.css"> -->
+  <!-- <link rel="stylesheet" href="styles/modules.css"> -->
 
   <link rel="stylesheet" href="vendor/styles/railscasts.css">
 
@@ -17,37 +17,37 @@
   <link href="https://fonts.googleapis.com/css?family=Dancing+Script" rel="stylesheet">
 </head>
 
-  <script id="article-template" type="text/x-handlebars-template">
+  <!-- <script id="atemplate" type="text/x-handlebars-template">
     <article data-title="{{ title }}" data-category="{{ category }}">
       <header>
         <div>
           <h4><a href="{{ projectUrl }}">{{ title }}</a></h4>
           <div class="byline">
-            <time pubdate datetime="{{publisheOn}}">{{publishedStatus}}</time>
+            <time pubdate datetime="{{publishedOn}}">{{publishedStatus}}</time>
           </div>
         </header>
         <div>{{{ body }}}</div>
       </article>
-    </script>
-<!--
+    </script> -->
+
     <script id="btemplate" type="text/x-handlebars-template">
       <article data-title="{{ title }}" data-blogcategory="{{ blogcategory }}">
         <header>
           <div>
-            <h5>{{ title }}</h5>
+            <h5><a href="{{ projectUrl }}">{{ title }}</a></h5>
             <div class="byline">
               <time pubdate datetime="{{publisheOn}}">{{publishedStatus}}</time>
             </div>
           </header>
           <div>{{{ body }}}</div>
         </article>
-      </script> -->
+      </script>
 
     </head>
     <body>
     <header class="site-header clearfix">
       <section class="heading-group-h1 pull-left">
-        <h3>Project/Blog Entry</h3>
+        <h3>Blog Entry</h3>
         <h4>Template</h4>
       </section>
       <nav class="main-nav">
@@ -61,7 +61,7 @@
 
     <main class="clearfix">
       <section id="write" class="tab-content">
-        <h1>New Article</h1>
+        <h3>New Blog Article</h3>
         <form action="#" id="new-form">
           <label>
             <input type="text" id="article-title" placeholder="Project title" required>
@@ -71,7 +71,7 @@
             <input type="text" id="article-project-url" placeholder="Project's URL" required>
           </label>
           <label>
-            <input type="text" id="article-category" placeholder="Category" required>
+            <input type="text" id="article-blogcategory" placeholder="Category" required>
           </label>
           <label>
             <input type="checkbox" id="article-published"> Published
@@ -80,7 +80,6 @@
       </section>
       <section id="articles" class="tab-content"></section>
 
-    <!-- REVIEW: Section that will hold our JSON export -->
     <section id="article-export">
       <label id="export-field" for="article-json" class="pull-right">
         <input type="text" readonly id="article-json">
@@ -91,15 +90,19 @@
     <footer>
       &copy; 2017 J. Walters | Portfolio
     </footer>
-
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.4/handlebars.js"></script>
+
     <script src="/vendor/scripts/marked.js"></script>
     <script src="/vendor/scripts/highlight.pack.js"></script>
 
-    <script src="scripts/projects.js" type="text/Javascript"></script>
-    <!-- <script src="scripts/blogs.js" type="text/Javascript"></script> -->
+    <script src="scripts/blogArticles.js" type="text/javascript"></script>
+    <script src="scripts/projectData.js" type="text/Javascript"></script>
+    <!-- <script src="scripts/projects.js" type="text/Javascript"></script> -->
+    <script src="scripts/blogs.js" type="text/Javascript"></script>
     <script src="scripts/mainView.js" type="text/Javascript"></script>
-    <script>mainView.initIndexPage();</script>
+
+    <script>mainView.initNewBlogArticlePage();</script>
+
   </body>
   </html>
