@@ -53,14 +53,14 @@ nav ul li a{
   font-family: 'Abril Fatface', cursive; color: red;
   font-weight: lighter;
   font-style: normal;;
-  font-size: 30px;
+  font-size: 39px;
   width: 100%;
   list-style: none;
   display: flex;
   text-decoration: none;
   margin: 4px;
   padding: 5px;
-  text-shadow: .5px .5px white;
+  text-shadow: .7px .7px white;
 }
 ul li, a, h2 {
   font-family: 'times new roman', cursive; color: red;

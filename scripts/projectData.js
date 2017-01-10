@@ -1,5 +1,6 @@
 'use strict';
 var projectData = [
+  {'title':'How to Make It Pretty','body':'<pre><code>h1{\nbackground-color: Black;\n}\n</code></pre>','projectUrl':'google.com','category':'Tech','publishedOn':'2017-01-10T01:00:08.180Z','daysAgo':0,'publishedStatus':'published 0 days ago'},
   {
     title: 'Linked Up',
     category:'Networking',

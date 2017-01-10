@@ -1,6 +1,14 @@
 'use strict';
 var blogArticles = [
   {
+    title:'Migos',
+    body:'<p>Bad and Boujee</p>\n',
+    projectUrl:'https://www.youtube.com/watch?v=S-sJp1FfG7Q',
+    category:'Music',
+    publishedOn:'2017-01-10T01:13:54.102Z','daysAgo':0,
+    publishedStatus:'published 0 days ago'
+  },
+  {
     title: 'My Journey',
     blogcategory: 'Finances',
     publishedOn : '10/10/2016',

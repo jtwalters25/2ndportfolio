@@ -123,8 +123,9 @@ mainView.initNewArticlePage = function() {
   $('#article-json').on('focus', function(){
     $(this).select();
   });
-  $('document').on('change', mainView.create);
+  $('#new-form').on('change', 'input, textarea', mainView.create);
 };
+
 
 mainView.create = function() {
   var formArticle;
@@ -137,7 +138,8 @@ mainView.create = function() {
     category: $('#article-category').val(),
     publishedOn: $('#article-published:checked').length ? new Date() : null
   });
-  $('#articles').append(formArticle.toHtml('#article-template'));
+  $('#articles').append(formArticle.toHtml('#atemplate'));
+  console.log(formArticle);
 
   $('pre code').each(function(i, block) {
     hljs.highlightBlock(block);
@@ -145,8 +147,41 @@ mainView.create = function() {
   // DONE: Export the new article as JSON, so it's ready to copy/paste into blogArticles.js:
   $('#export-field').show();
   $('#article-json').val(JSON.stringify(formArticle) + ',');
-  console.log('Worked');
 };
+
+mainView.initNewBlogArticlePage = function() {
+  // DONE: Ensure the main .tab-content area is revealed. We might add more tabs later.
+  $('.tab-content').show();
+  $('#export-field').hide();
+  $('#article-json').on('focus', function(){
+    $(this).select();
+  });
+  $('#new-form').on('change', 'input, textarea', mainView.create);
+};
+
+
+mainView.create = function() {
+  var formArticle;
+  $('#articles').empty().show();
+
+  formArticle = new Blogarticle({
+    title: $('#article-title').val(),
+    body: $('#article-body').val(),
+    projectUrl: $('#article-project-url').val(),
+    category: $('#article-category').val(),
+    publishedOn: $('#article-published:checked').length ? new Date() : null
+  });
+  $('#articles').append(formArticle.toHtml('#btemplate'));
+  console.log(formArticle);
+
+  $('pre code').each(function(i, block) {
+    hljs.highlightBlock(block);
+  });
+  // DONE: Export the new article as JSON, so it's ready to copy/paste into blogArticles.js:
+  $('#export-field').show();
+  $('#article-json').val(JSON.stringify(formArticle) + ',');
+};
+
 
 
 mainView.initIndexPage = function () {
