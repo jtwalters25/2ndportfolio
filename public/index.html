@@ -37,10 +37,10 @@
           <div>{{{ body }}}</div>
     </article>
   </script>
-  <script id="project-filter-template" type="text/x-handlebars-template">
+  <script id="project-filter-template" type="text/x-handlebars-template" >
       <option value="{{projectUrl}}">{{project}}</option>
     </script>
-    <script id="category-filter-template" type="text/x-handlebars-template">
+    <script id="category-filter-template" type="text/x-handlebars-template ">
       <option value="{{category}}">{{category}}</option>
     </script>
 
@@ -74,7 +74,7 @@
       <section id="projects" class="tabContent">
         <h3>Projects</h3>
         <div>
-          <ul id="filters">
+          <ul id="filters" class="filters">
             <li>
               <select id="title-filter">
                 <option value="">-- Filter by Title --</option>
@@ -132,7 +132,7 @@
   <section class="blogs">
   <h3>LiFE + TiMES BLoG</h3>
   <div>
-    <ul id="blogFilters">
+    <ul id="blogFilters " class="filters">
       <li>
         <select id="blogTitle-filter">
           <option value="">-- Filter by Title --</option>
@@ -150,7 +150,7 @@
 </div>
 <div class="tabContent" id="contact">
   <h3>Contact Me</h3>
-  <ul>
+  <ul class="contact">
     <li><a href="https://www.linkedin.com/in/jeremiahwalters"><img src="styles/imgs/linkedin.png" alt="linkinicon" style="width:140px;height:140px;"></a>
     </li>
     <li>
