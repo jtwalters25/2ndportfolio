@@ -9,7 +9,7 @@ const PORT = process.env.PORT || 3000;
 app.use(express.static('./public'));
 
 app.get('/newblog.html', function(request, response){
-  response.send('OMG message!');
+  response.send('Haaay message!');
 })
 
 app.get('/index.html', function(request, response){

@@ -21,4 +21,8 @@
     "url": "https://github.com/jtwalters25/2ndportfolio/issues"
   },
   "homepage": "https://github.com/jtwalters25/2ndportfolio#readme"
+  ,
+  "dependencies": {
+    "express": "^4.13.3"
+  }
 }
