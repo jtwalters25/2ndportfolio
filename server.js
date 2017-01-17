@@ -1,20 +1,34 @@
-// Load Express
-const express = require('express')
-// Instantiate express so that we can use its functionality
-const app = express();
-// design a port to serve our app on
+'use strict'
+const pg = require('pg');
+const express = require('express');
+const bodyParser = require('body-parser');
 const PORT = process.env.PORT || 3000;
+const app = express();
+const conString = process.env.DATABASE_URL || 'postgres://localhost:5432';
 
 // define which directory we will serve files from
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static('./public'));
+//
+// app.get('/newblog.html', function(request, response){
+//   response.sendFile('newblog.html', {root: './public'});
+// });
+//
+// app.get('/', function(request, response){
+//   response.sendFile('index.html', {root: './public'});
+// });
+// NOTE: Routes for requesting HTML resources
+app.get('/', (request, response) => response.sendFile('index.html', {root: '.'}));
 
-app.get('/newblog.html', function(request, response){
-  response.send('Haaay message!');
-})
+app.get('/newblog', (request, response) => response.sendFile('newblog.html', {root: '.'}));
 
-app.get('/index.html', function(request, response){
-  response.sendFile('index.html', {root: './public'});
-})
+app.get('/newproject', (request, response) => response.sendFile('newproject.html', {root: '.'}));
+
+app.get('/admin', (request, response) => response.sendFile('admin.html', {root: '.'}));
+
+app.get('/articles/all', (request, response) => {
+  let client = new pg.Client(conString);
 
 // lets route everything to index.html
 app.get('*', function(request, response) {
