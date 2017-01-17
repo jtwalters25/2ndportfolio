@@ -29,7 +29,7 @@ app.get('/admin', (request, response) => response.sendFile('admin.html', {root: 
 
 app.get('/articles/all', (request, response) => {
   let client = new pg.Client(conString);
-
+})
 // lets route everything to index.html
 app.get('*', function(request, response) {
   console.log('New request:', request.url);

@@ -48,51 +48,53 @@
     // then load all the data into Article.all with the .loadAll function above,
     // and then render the index page.
 
-  Articles.allTitle = function() {
-    return Articles.all.map(function(titles) {
-      return article.title;
-    })
-    .reduce(function(names, name) {
-      if (names.indexOf(name) === -1) {
-        names.push(name);
-      }
-      return names;
-    }, []);
-  };
 
-  Articles.numWordsAll = function() {
-    return Articles.all.map(function(articles) {
-      return articles.body.match(/\b\w+/g).length;
-    })
-    .reduce(function(a, b) {
-      return a + b;
-    });
-  };
-
-  Articles.numWordsByTitle = function() {
-    return Articles.allTitles().map(function(title) {
-      return {
-        name: title,
-        numWords: Articles.all.filter(function(a) {
-          return a.title === title;
-        })
-        .map(function(a) {
-          return a.body.match(/\b\w+/g).length
-        })
-        .reduce(function(a, b) {
-          return a + b;
-        })
-      }
-    })
-  };
-
-  Articles.stats = function() {
-    return {
-      numArticles: Articles.all.length,
-      numWords: Articles.numwords(),
-      titles: Articles.alltitles(),
-    };
-  }
+  //
+  // Articles.allAuthors = function() {
+  //   return Articles.all.map(function(articles) {
+  //     return article.sauthor;
+  //   })
+  //   .reduce(function(names, name) {
+  //     if (names.indexOf(name) === -1) {
+  //       names.push(name);
+  //     }
+  //     return names;
+  //   }, []);
+  // };
+  //
+  // Articles.numWordsAll = function() {
+  //   return Articles.all.map(function(articles) {
+  //     return articles.body.match(/\b\w+/g).length;
+  //   })
+  //   .reduce(function(a, b) {
+  //     return a + b;
+  //   });
+  // };
+  //
+  // Articles.numWordsByAuthor = function() {
+  //   return Articles.allAuthors().map(function(author) {
+  //     return {
+  //       name: author,
+  //       numWords: Articles.all.filter(function(a) {
+  //         return a.author === author;
+  //       })
+  //       .map(function(a) {
+  //         return a.body.match(/\b\w+/g).length
+  //       })
+  //       .reduce(function(a, b) {
+  //         return a + b;
+  //       })
+  //     }
+  //   })
+  // };
+  //
+  // Articles.stats = function() {
+  //   return {
+  //     numArticles: Articles.all.length,
+  //     numWords: Articles.numwords(),
+  //     Authors: Articles.allAuthors(),
+  //   };
+  // }
 
   module.Articles = Articles;
 })(window);
