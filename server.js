@@ -19,13 +19,13 @@ app.use(express.static('./public'));
 //   response.sendFile('index.html', {root: './public'});
 // });
 // NOTE: Routes for requesting HTML resources
-app.get('/', (request, response) => response.sendFile('index.html', {root: '.'}));
+app.get('/', (request, response) => response.sendFile('index.html', {root: './public'}));
 
-app.get('/newblog', (request, response) => response.sendFile('newblog.html', {root: '.'}));
+app.get('/newblog', (request, response) => response.sendFile('newblog.html', {root: './public'}));
 
-app.get('/newproject', (request, response) => response.sendFile('newproject.html', {root: '.'}));
+app.get('/newproject', (request, response) => response.sendFile('newproject.html', {root: './public'}));
 
-app.get('/admin', (request, response) => response.sendFile('admin.html', {root: '.'}));
+app.get('/admin', (request, response) => response.sendFile('admin.html', {root: './public'}));
 
 app.get('/articles/all', (request, response) => {
   let client = new pg.Client(conString);
