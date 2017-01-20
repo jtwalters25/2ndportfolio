@@ -22,8 +22,8 @@ const help = () => {
 function main () {
   db.createTableAuthor()
   .then(db.createTableArticle)
-  .then(() => db.loadAuthors('hackerIpsum.json'))
-  .then(() => db.loadArticles('hackerIpsum.json'))
+  .then(() => db.loadAuthors('blogArticles.json'))
+  .then(() => db.loadArticles('blogArticles.json'))
   .then(() => success())
   .catch(err => {
     help()

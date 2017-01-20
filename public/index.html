@@ -64,8 +64,8 @@
       <ul>
         <li><a href="#" class="tab" data-content="aboutMe">Home</a></li>
         <li><a href="#" class="tab" data-content="skills">Skills</a></li>
-        <li><a href="#" class="tab" data-content="projects">Projects</a></li>
-        <li><a href="#" class="tab" data-content="blog">Blog</a></li>
+        <li><a href="/projects" class="tab" data-content="projects">Projects</a></li>
+        <li><a href="/blog" class="tab" data-content="blog">Blog</a></li>
         <li><a href="#" class="tab" data-content="contact">Contact</a></li>
       </ul>
     </div>
@@ -188,20 +188,23 @@
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 
-  <script src="vendor/scripts/handlebars.js"></script>
+  <script src="/vendor/scripts/handlebars.js"></script>
   <script src="/vendor/scripts/marked.js"></script>
   <script src="/vendor/scripts/highlight.pack.js"></script>
   <script src="/vendor/scripts/page.js"></script>
 
-  <script src="scripts/blogArticles.js" type="text/javascript"></script>
+  <script src="/scripts/model/githubToken.js"></script>
 
-  <script src="scripts/model/projects.js" type="text/Javascript"></script>
-  <script src="scripts/model/blogs.js" type="text/Javascript"></script>
-  <script src="scripts/view/mainView.js" type="text/Javascript"></script>
+  <script src="/scripts/model/blogs.js" type="text/Javascript"></script>
+  <script src="/scripts/view/mainView.js" type="text/Javascript"></script>
+  <script src="/scripts/controller/articleController.js"></script>
 
-  <script src="scripts/models/repo.js"></script>
-  <script src="/scripts/views/repoView.js"></script>
 
-  <script>Articles.fetchAll(mainView.initIndexPage);</script>
+  <script src="/scripts/model/repo.js"></script>
+  <script src="/scripts/view/repoView.js"></script>
+  <script src="/scripts/controller/projectController.js"></script>
+
+  <script src="/scripts/controller/routes.js"></script>
+  <!-- <script>Articles.fetchAll(mainView.initIndexPage);</script> -->
 </body>
 </html>
