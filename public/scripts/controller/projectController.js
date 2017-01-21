@@ -4,7 +4,7 @@
   const projectController = {};
 
   projectController.index = () => {
-    $('#about').show().siblings().hide();
+    $('#projects').show().siblings().hide();
     repos.requestRepos(repoView.index);
   };
 

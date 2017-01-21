@@ -12,19 +12,6 @@
   <link href="https://fonts.googleapis.com/css?family=Abril+Fatface|Playfair+Display:400i,700" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Dancing+Script" rel="stylesheet">
 
-  <script id="atemplate" type="text/x-handlebars-template">
-    <article data-title="{{ title }}" data-category="{{ category }}">
-      <header>
-        <div>
-          <h4><a href="{{ projectUrl }}">{{ title }}</a></h4>
-            <div class="byline">
-         <time pubdate datetime="{{publisheOn}}">{{publishedStatus}}</time>
-        </div>
-      </header>
-          <div>{{{ body }}}</div>
-    </article>
-  </script>
-
   <script id="btemplate" type="text/x-handlebars-template">
     <article data-title="{{ title }}" data-blogcategory="{{ blogcategory }}">
       <header>
@@ -37,12 +24,7 @@
           <div>{{{ body }}}</div>
     </article>
   </script>
-  <script id="project-filter-template" type="text/x-handlebars-template" >
-      <option value="{{projectUrl}}">{{project}}</option>
-    </script>
-    <script id="category-filter-template" type="text/x-handlebars-template ">
-      <option value="{{category}}">{{category}}</option>
-    </script>
+
 
     <script id="repo-template" type="text/x-handlebars-template">
       <li>
@@ -62,11 +44,11 @@
   <nav class="main-nav">
     <div class="icon-menu">
       <ul>
-        <li><a href="#" class="tab" data-content="aboutMe">Home</a></li>
-        <li><a href="#" class="tab" data-content="skills">Skills</a></li>
+        <li><a href="/" class="tab" data-content="aboutMe">Home</a></li>
+        <li><a href="/skills" class="tab" data-content="skills">Skills</a></li>
         <li><a href="/projects" class="tab" data-content="projects">Projects</a></li>
         <li><a href="/blog" class="tab" data-content="blog">Blog</a></li>
-        <li><a href="#" class="tab" data-content="contact">Contact</a></li>
+        <li><a href="/contact" class="tab" data-content="contact">Contact</a></li>
       </ul>
     </div>
   </nav>
@@ -91,17 +73,9 @@
       <section id="projects" class="tabContent">
         <h3>Projects</h3>
         <div>
-          <ul id="filters" class="filters">
-            <li>
-              <select id="title-filter">
-                <option value="">-- Filter by Title --</option>
-              </select>
-            </li>
-            <li>
-              <select id="category-filter">
-                <option value="">-- Filter by Categories --</option>
-              </select>
-            </li>
+          <p></p>
+          <ul>
+
           </ul>
         </div>
       </section>
@@ -151,7 +125,7 @@
   <div>
     <ul id="blogFilters " class="filters">
       <li>
-        <select id="blogTitle-filter">
+        <select id="author-filter">
           <option value="">-- Filter by Title --</option>
         </select>
       </li>
@@ -198,6 +172,9 @@
   <script src="/scripts/model/blogs.js" type="text/Javascript"></script>
   <script src="/scripts/view/mainView.js" type="text/Javascript"></script>
   <script src="/scripts/controller/articleController.js"></script>
+  <script src="/scripts/controller/skillsController.js"></script>
+  <script src="/scripts/controller/contactController.js"></script>
+
 
 
   <script src="/scripts/model/repo.js"></script>
@@ -205,6 +182,6 @@
   <script src="/scripts/controller/projectController.js"></script>
 
   <script src="/scripts/controller/routes.js"></script>
-  <!-- <script>Articles.fetchAll(mainView.initIndexPage);</script> -->
+  <script>Articles.fetchAll(mainView.initIndexPage);</script>
 </body>
 </html>

@@ -16,15 +16,16 @@
     return rendertemplate(this);
   };
 
-  Articles.loadAll = blogs => {
-    blogs.sort((a,b) => (new Date(b.publishedOn)) - (new Date(a.publishedOn)));
-    Articles.all = blogs.map(ele => new Articles(ele));
+  Articles.loadAll = rows => {
+    rows.sort((a,b) => (new Date(b.publishedOn)) - (new Date(a.publishedOn)));
+    Articles.all = rows.map(ele => new Articles(ele));
   };
 
   Articles.fetchAll = callback => {
     $.get('/articles/all')
     .then(
       results => {
+        console.log(results.rows);
         if (results.rows.length) {
           Articles.loadAll(results.rows);
           callback();

@@ -5,8 +5,8 @@
   articleController.index = () => {
     Articles.fetchAll(mainView.initIndexPage);
 
-    $('main > section').hide();
-    $('#articles').show();
+    $('.tabContent, articles').hide();
+    $('#aboutMe').show();
   };
 
   module.articleController = articleController;

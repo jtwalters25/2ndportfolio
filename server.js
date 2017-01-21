@@ -18,6 +18,12 @@ app.get('/newblog', (request, response) => response.sendFile('newblog.html', {ro
 
 app.get('/blog', (request, response) => response.sendFile('index.html', {root: './public'}));
 
+app.get('/skills', (request, response) => response.sendFile('index.html', {root: './public'}));
+
+app.get('/contact', (request, response) => response.sendFile('index.html', {root: './public'}));
+
+app.get('/projects', (request, response) => response.sendFile('index.html', {root: './public'}));
+
 app.get('/articles/all', (request, response) => {
   let client = new pg.Client(conString);
 

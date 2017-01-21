@@ -61,8 +61,8 @@
       if (!$(this).hasClass('template')) {
         var val = $(this).find('h5').text();
         var optionTag = `<option value="${val}">${val}</option>`;
-        if ($(`#blogTitle-filter option[value="${val}"]`).length === 0) {
-          $('#blogTitle-filter').append(optionTag);
+        if ($(`#author-filter option[value="${val}"]`).length === 0) {
+          $('#author-filter').append(optionTag);
 
           val = $(this).attr('data-blogcategory');
           optionTag = `<option value="${val}">${val}</option>`;
@@ -74,8 +74,8 @@
     });
   };
 
-  mainView.handleBlogTitleFilter = function(){
-    $('#blogTitle-filter').on('change', function() {
+  mainView.handleAuthorFilter = function(){
+    $('#author-filter').on('change', function() {
       if ($(this).val()) {
         $('article').hide();
         $(`article[data-title="${$(this).val()}"]`).fadeIn();
@@ -96,54 +96,56 @@
         $('article').fadeIn();
         $('article.template').hide();
       }
-      $('#blogTitle-filter').val('');
+      $('#author-filter').val('');
     });
   }
-  mainView.handleMainNav = function () {
-    $('.tabContent, articles').hide();
-    $('#aboutMe').show();
 
-    $('.main-nav').on('click', '.tab',function(e){
-      e.preventDefault();
-      var $see = $(this).attr('data-content');
-      console.log($see);
-      $('.tabContent, article').hide();
-      $('#' + $see).show();
+  // mainView.handleMainNav = function () {
+  //   $('.tabContent, articles').hide();
+  //   $('#aboutMe').show();
+  //
+  //   $('.main-nav').on('click', '.tab',function(e){
+  //     e.preventDefault();
+  //     var $see = $(this).attr('data-content');
+  //     console.log($see);
+  //     $('.tabContent, article').hide();
+  //     $('#' + $see).show();
+  //
+  //   })
+  // };
 
-    })
 
+  //   $('.theSkills ul > li').hide();
+  //   $('.theSkills').show();
+  //   $('.theSkills').on('click', 'ul', function(e) {
+  //     var target = $(this);
+  //     e.preventDefault();
+  //     $('.theSkills ul > li').each(function() {
+  //       if ($(this).is(':visible') && $(this).parent().text() !== target.text()) {
+  //         $(this).toggle(200);
+  //       }
+  //     });
+  //     target.find('li').toggle(300);
+  //   });
+  // };
 
-    $('.theSkills ul > li').hide();
-    $('.theSkills').show();
-    $('.theSkills').on('click', 'ul', function(e) {
-      var target = $(this);
-      e.preventDefault();
-      $('.theSkills ul > li').each(function() {
-        if ($(this).is(':visible') && $(this).parent().text() !== target.text()) {
-          $(this).toggle(200);
-        }
-      });
-      target.find('li').toggle(300);
-    });
-  };
-
-  mainView.create = function() {
-    var formArticle;
-    $('#articles').empty().show();
-
-    formArticle = new Articles({
-      title: $('#article-title').val(),
-      body: $('#article-body').val(),
-      projectUrl: $('#article-project-url').val(),
-      category: $('#article-category').val(),
-      publishedOn: $('#article-published:checked').length ? new Date() : null
-    });
-
-    $('#articles').append(formArticle.toHtml('#atemplate'));
-    $('pre code').each((i, block) => hljs.highlightBlock(block));
-    $('#export-field').show();
-    $('#article-json').val(`${JSON.stringify(formArticle)},`);
-  };
+  // mainView.create = function() {
+  //   var formArticle;
+  //   $('#articles').empty().show();
+  //
+  //   formArticle = new Articles({
+  //     title: $('#article-title').val(),
+  //     body: $('#article-body').val(),
+  //     projectUrl: $('#article-project-url').val(),
+  //     category: $('#article-category').val(),
+  //     publishedOn: $('#article-published:checked').length ? new Date() : null
+  //   });
+  //
+  //   $('#articles').append(formArticle.toHtml('#atemplate'));
+  //   $('pre code').each((i, block) => hljs.highlightBlock(block));
+  //   $('#export-field').show();
+  //   $('#article-json').val(`${JSON.stringify(formArticle)},`);
+  // };
 
   // mainView.initNewBlogArticlePage = function() {
   // // DONE: Ensure the main .tab-content area is revealed. We might add more tabs later.
@@ -181,12 +183,11 @@
 
 
   mainView.initIndexPage = () => {
-    $('#ajax-spinner').fadeOut();
     $('#filters').fadeIn();
     Articles.all.forEach(article => {
       $('#blog').append(article.toHtml('#btemplate'));
-      if($(`#category-filter option:contains("${article.category}")`).length === 0) {
-        $('#category-filter').append(article.toHtml('#category-filter-template'));
+      if($(`#blogCategory-filter option:contains("${article.category}")`).length === 0) {
+        $('#blogCategory-filter').append(article.toHtml('#blogCategory-filter-template'));
       }
       if($(`#author-filter option:contains("${article.author}")`).length === 0) {
         $('#author-filter').append(article.toHtml('#author-filter-template'));
@@ -196,7 +197,7 @@
 
 
     mainView.populateBlogFilters();
-    mainView.handleBlogTitleFilter();
+    mainView.handleAuthorFilter();
     mainView.handleBlogCategoryFilter();
     mainView.handleMainNav();
   };
