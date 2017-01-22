@@ -20,9 +20,11 @@
   "bugs": {
     "url": "https://github.com/jtwalters25/2ndportfolio/issues"
   },
-  "homepage": "https://github.com/jtwalters25/2ndportfolio#readme"
-  ,
+  "homepage": "https://github.com/jtwalters25/2ndportfolio#readme",
   "dependencies": {
-    "express": "^4.13.3"
+    "express": "^4.13.3",
+    "bluebird": "^3.4.7",
+    "body-parser": "^1.15.2",
+    "pg": "^6.1.2"
   }
 }
