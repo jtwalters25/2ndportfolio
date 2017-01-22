@@ -14,7 +14,7 @@
 }
 
 .icon-menu {
-  float: right;
+  float: left;
   width: 150px;
   height: 50px;
 }
@@ -47,7 +47,16 @@
   padding: 0;
   list-style: none;
 }*/
+h1{
+  padding-left: 50px;
+  padding-top: 5px;
+  margin: auto;
+  font-family: 'Dancing Script', cursive;
+  font-weight: bold;
+  font-size: 8.125em; color: black;
+  text-shadow: 1px 2px white;
 
+}
 .template {
   display: block;
 }
@@ -60,10 +69,16 @@
   font-weight: bold;
   text-decoration: none;
 }
-h1
-{
-font-size: 8.000em
-}
+/*h1{
+  display: inline-block;
+  padding-left: 50px;
+  padding-top: 5px;
+  margin: auto;
+  font-family: 'Dancing Script', cursive;
+  font-weight: bold;
+  font-size: 8.125em; color: black;
+  text-shadow: 1px 2px white;*/
+/*}*/
 @media screen and (min-width: 600px){
     .icon-menu {
      /*display: none;*/
@@ -80,9 +95,9 @@ font-size: 8.000em
   }
   .main-nav li {
     display: inline-block;
+
   }
   .icon-menu::before{
     display:none;
   }
-
-}*/
+}

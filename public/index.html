@@ -12,19 +12,6 @@
   <link href="https://fonts.googleapis.com/css?family=Abril+Fatface|Playfair+Display:400i,700" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Dancing+Script" rel="stylesheet">
 
-  <script id="atemplate" type="text/x-handlebars-template">
-    <article data-title="{{ title }}" data-category="{{ category }}">
-      <header>
-        <div>
-          <h4><a href="{{ projectUrl }}">{{ title }}</a></h4>
-            <div class="byline">
-         <time pubdate datetime="{{publisheOn}}">{{publishedStatus}}</time>
-        </div>
-      </header>
-          <div>{{{ body }}}</div>
-    </article>
-  </script>
-
   <script id="btemplate" type="text/x-handlebars-template">
     <article data-title="{{ title }}" data-blogcategory="{{ blogcategory }}">
       <header>
@@ -37,11 +24,19 @@
           <div>{{{ body }}}</div>
     </article>
   </script>
-  <script id="project-filter-template" type="text/x-handlebars-template">
-      <option value="{{projectUrl}}">{{project}}</option>
-    </script>
-    <script id="category-filter-template" type="text/x-handlebars-template">
-      <option value="{{category}}">{{category}}</option>
+
+
+    <script id="repo-template" type="text/x-handlebars-template">
+      <li>
+        <a href="{{html_url}}" target="_blank"><h3>{{name}}</h3></a>
+        <p>Description: {{description}}</p>
+        <p>Language: {{language}}</p>
+        <p>Created: {{created_at}}</p>
+        <p>Last updated: {{updated_at}}</p>
+        {{#if watchers_count}}
+          <p>{{watchers_count}} watching this repo</p>
+        {{/if}}
+      </li>
     </script>
 
 </head>
@@ -49,48 +44,43 @@
   <nav class="main-nav">
     <div class="icon-menu">
       <ul>
-        <li><a href="#" class="tab" data-content="aboutMe">Home</a></li>
-        <li><a href="#" class="tab" data-content="skills">Skills</a></li>
-        <li><a href="#" class="tab" data-content="projects">Projects</a></li>
-        <li><a href="#" class="tab" data-content="blog">Blog</a></li>
-        <li><a href="#" class="tab" data-content="contact">Contact</a></li>
+        <li><a href="/" class="tab" data-content="aboutMe">Home</a></li>
+        <li><a href="/skills" class="tab" data-content="skills">Skills</a></li>
+        <li><a href="/projects" class="tab" data-content="projects">Projects</a></li>
+        <li><a href="/blogs" class="tab" data-content="blog">Blog</a></li>
+        <li><a href="/contact" class="tab" data-content="contact">Contact</a></li>
       </ul>
     </div>
   </nav>
-
   <h1>Jeremiah Walters</h1>
 </header>
-<body>
-  <div class="tabContent" id="aboutMe" >
+<body class="main">
+  <section class="tabContent" id="aboutMe" >
     <h3>About Me</h3>
     <div>
       <p>
         I am a web developer based out of Seattle,Washington and I enjoy local music, local food and spending thie with my loved ones.   Eating healthy and learning are very important to me.   <br>
-
-      </div>
     </div>
-    <!-- <div class="tabContent" id="Work"> -->
+    <div class="twitter">
+
+      <h5 style="font-size: 49px; color:rgb(0, 174, 238);">Twitter Feed</h5>
+      <a class="twitter-timeline" margin-left:10px; data-width="650" data-height="436" data-theme="light" data-link-color="rgb(195, 0, 0)" href="https://twitter.com/JWalters25">Tweets by JWalters25</a> <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+    </div>
+
+  </section>
     <main>
       <section id="projects" class="tabContent">
         <h3>Projects</h3>
         <div>
-          <ul id="filters">
-            <li>
-              <select id="title-filter">
-                <option value="">-- Filter by Title --</option>
-              </select>
-            </li>
-            <li>
-              <select id="category-filter">
-                <option value="">-- Filter by Categories --</option>
-              </select>
-            </li>
+          <p></p>
+          <ul>
+            <li></li>
           </ul>
         </div>
       </section>
     </main>
 
-    <div class="tabContent" id="skills">
+    <section class="tabContent" id="skills">
       <div class="theSkills">
         <h3>Skills</h3>
         <ul><h4><a href="#">Languages</a></h4>
@@ -127,12 +117,12 @@
     </ul>
   </div>
 
-</div>
+</section>
 <div class="tabContent" id="blog">
-  <section class="blogs">
+  <section id="blogs">
   <h3>LiFE + TiMES BLoG</h3>
   <div>
-    <ul id="blogFilters">
+    <ul id="blogFilters " class="filters">
       <li>
         <select id="blogTitle-filter">
           <option value="">-- Filter by Title --</option>
@@ -144,13 +134,14 @@
         </select>
       </li>
     </ul>
+
   </div>
 
   </section>
 </div>
-<div class="tabContent" id="contact">
+<section class="tabContent" id="contact">
   <h3>Contact Me</h3>
-  <ul>
+  <ul class="contact">
     <li><a href="https://www.linkedin.com/in/jeremiahwalters"><img src="styles/imgs/linkedin.png" alt="linkinicon" style="width:140px;height:140px;"></a>
     </li>
     <li>
@@ -164,21 +155,33 @@
       <a href="https://twitter.com/JWalters25" target="_top"><img src="styles/imgs/twitter.png" alt="email icon" style="width:140px;height:140px;" /></a>
     </li>
   </ul>
+</section>
   <footer>
     &copy; 2017 J. Walters | Portfolio
   </footer>
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.4/handlebars.js"></script>
-  <script src="vendor/scripts/handlebars.js"></script>
+
+  <script src="/vendor/scripts/handlebars.js"></script>
   <script src="/vendor/scripts/marked.js"></script>
   <script src="/vendor/scripts/highlight.pack.js"></script>
+  <script src="/vendor/scripts/page.js"></script>
 
-  <script src="scripts/blogArticles.js" type="text/javascript"></script>
+  <script src="/scripts/model/githubToken.js"></script>
 
-  <script src="scripts/projects.js" type="text/Javascript"></script>
-  <script src="scripts/blogs.js" type="text/Javascript"></script>
-  <script src="scripts/mainView.js" type="text/Javascript"></script>
-  <script>Articles.fetchAll(mainView.initIndexPage);</script>
+  <script src="/scripts/model/blogs.js" type="text/Javascript"></script>
+  <script src="/scripts/view/mainView.js" type="text/Javascript"></script>
+  <script src="/scripts/controller/articleController.js"></script>
+  <script src="/scripts/controller/skillsController.js"></script>
+  <script src="/scripts/controller/contactController.js"></script>
+
+
+
+  <script src="/scripts/model/repo.js"></script>
+  <script src="/scripts/view/repoView.js"></script>
+  <script src="/scripts/controller/projectController.js"></script>
+
+  <script src="/scripts/controller/routes.js"></script>
+  <!-- <script>Articles.fetchAll(mainView.initIndexPage);</script> -->
 </body>
 </html>

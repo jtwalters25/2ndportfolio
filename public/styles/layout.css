@@ -16,7 +16,7 @@
   max-width: 80%;
 }
 
-#filters select {
+.filters select {
   width: 90%;
   margin: .2em 5%;
 }
