@@ -199,7 +199,7 @@
     mainView.populateBlogFilters();
     mainView.handleAuthorFilter();
     mainView.handleBlogCategoryFilter();
-    mainView.handleMainNav();
+    // mainView.handleMainNav();
   };
 
   Articles.fetchAll(mainView.initIndexPage);

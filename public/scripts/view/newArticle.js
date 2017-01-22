@@ -2,7 +2,7 @@
   const mainView = {};
 
   mainView.initNewBlogArticlePage = function() {
-// DONE: Ensure the main .tab-content area is revealed. We might add more tabs later.
+
     $('.tab-content').show();
     $('#export-field').hide();
     $('#article-json').on('focus', function(){

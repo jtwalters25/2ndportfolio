@@ -4,10 +4,13 @@
   const articleController = {};
   articleController.index = () => {
     Articles.fetchAll(mainView.initIndexPage);
-
-    $('.tabContent, articles').hide();
-    $('#aboutMe').show();
-  };
-
+    $('.main-nav').on('click', '.tab',function(e){
+      e.preventDefault();
+      var $see = $(this).attr('data-content');
+      console.log($see);
+      $('.tabContent, article').hide();
+      $('#' + $see).show();
+    })
+  }
   module.articleController = articleController;
 })(window);

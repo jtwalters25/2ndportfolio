@@ -96,7 +96,7 @@
   };
 
   Articles.prototype.insertRecord = function(callback) {
-    $.post('/articles/insert', {author: this.author, authorUrl: this.authorUrl, body: this.body, category: this.category, publishedOn: this.publishedOn, title: this.title})
+    $.post('/articles/insert', {author: this.author, body: this.body, category: this.category, publishedOn: this.publishedOn, title: this.title})
   .then(console.log)
   .then(callback);
   };
@@ -117,7 +117,6 @@
       method: 'DELETE',
       data: {
         author: this.author,
-        authorUrl: this.authorUrl,
         body: this.body,
         category: this.category,
         publishedOn: this.publishedOn,

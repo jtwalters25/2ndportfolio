@@ -4,6 +4,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const PORT = process.env.PORT || 3000;
 const app = express();
+// const requestProxy = require('express-request-proxy');
 const conString = process.env.DATABASE_URL || 'postgres://localhost:5432';
 
 // define which directory we will serve files from
@@ -23,6 +24,17 @@ app.get('/skills', (request, response) => response.sendFile('index.html', {root:
 app.get('/contact', (request, response) => response.sendFile('index.html', {root: './public'}));
 
 app.get('/projects', (request, response) => response.sendFile('index.html', {root: './public'}));
+//
+// app.get('/github/*', proxyGitHub);
+
+//
+// function proxyGitHub(request, response) {
+//   console.log('Routing GitHub request for', request.params[0]);
+//   (requestProxy({
+//     url: `https://api.github.com/${request.params[0]}`,
+//     headers: {Authorization: `token ${process.env.GITHUB_TOKEN}`}
+//   }))(request, response);
+// }
 
 app.get('/articles/all', (request, response) => {
   let client = new pg.Client(conString);
