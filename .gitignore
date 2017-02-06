@@ -1,4 +1,9 @@
+public/scripts/model/githubToken.js
+
 # Created by https://www.gitignore.io/api/osx,linux,node,vim
+
+
+
 
 ### OSX ###
 .DS_Store
