@@ -1,13 +1,10 @@
+
 'use strict';
 
 (function(module) {
   const articleController = {};
   articleController.index = () => {
-    Articles.fetchAll(mainView.initIndexPage);
-
-    $('.tabContent, articles').hide();
-    $('#aboutMe').show();
-  };
-
+    $('#blog').show().siblings().hide();
+  }
   module.articleController = articleController;
 })(window);

@@ -3,6 +3,8 @@
 (function(module) {
   const skillsController = {};
   skillsController.index = () => {
+    $('#skills').show().siblings().hide();
+
     $('.theSkills ul > li').hide();
     $('.theSkills').show();
     $('.theSkills').on('click', 'ul', function(e) {

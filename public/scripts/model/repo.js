@@ -7,10 +7,21 @@
 
   repos.requestRepos = function(callback) {
     // TODid: How would you like to fetch your repos? Don't forget to call the callback.
-    $.get('/github/user/repos?per_page=10&sort=updated')
-    .then(data => repos.all = data, err => console.error(err)) // es6 syntax arrow functions
-    .then(callback);
+    $.ajax({
+      url:'https://api.github.com/user/repos?per_page=10&sort=updated',
+      type:'GET',
+      headers: {
+        Authorization: `token ${githubToken}`
+      }
+    }).then(data => { console.log(data)
+      repos.all = data
+      callback();
+    });
+
   };
+
+  // REVIEW: Model method that filters the full collection for repos with a particular attribute.
+  // You could use this to filter all repos that have a non-zero `forks_count`, `stargazers_count`, or `watchers_count`.
   repos.with = attr => repos.all.filter(repo => repo[attr]);
 
   module.repos = repos;
