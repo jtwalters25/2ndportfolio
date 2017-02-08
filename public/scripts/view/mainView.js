@@ -59,8 +59,9 @@
   mainView.populateBlogFilters = function() {
     $('article').each(function() {
       if (!$(this).hasClass('template')) {
-        var val = $(this).find('h5').text();
-        var optionTag = `<option value="${val}">${val}</option>`;
+        let val = $(this).find('h5').text();
+        let optionTag = `<option value="${val}">${val}</option>`;
+
         if ($(`#title-filter option[value="${val}"]`).length === 0) {
           $('#title-filter').append(optionTag);
 
@@ -74,7 +75,7 @@
     });
   };
 
-  mainView.handleAuthorFilter = function(){
+  mainView.handleTitleFilter = function(){
     $('#title-filter').on('change', function() {
       if ($(this).val()) {
         $('article').hide();
@@ -105,11 +106,11 @@
   mainView.initIndexPage = () => {
     $('#filters').fadeIn();
     Articles.all.forEach(article => {
-      $('#blog').append(article.toHtml('#btemplate'));
+      $('#blogs').append(article.toHtml('#btemplate'));
       if($(`#blogCategory-filter option:contains("${article.category}")`).length === 0) {
         $('#blogCategory-filter').append(article.toHtml('#blogCategory-filter-template'));
       }
-      if($(`#title-filter option:contains("${article.author}")`).length === 0) {
+      if($(`#title-filter option:contains("${article.title}")`).length === 0) {
         $('#title-filter').append(article.toHtml('#title-filter-template'));
       }
     });
