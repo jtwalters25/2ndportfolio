@@ -27,16 +27,16 @@
 
 
     <script id="repo-template" type="text/x-handlebars-template">
-      <li>
-        <a href="{{html_url}}" target="_blank"><h3>{{name}}</h3></a>
-        <p>Description: {{description}}</p>
-        <p>Language: {{language}}</p>
-        <p>Created: {{created_at}}</p>
-        <p>Last updated: {{updated_at}}</p>
+      <ul class="theSkills">
+        <h4><a href="{{html_url}}" target="_blank">{{name}}</a></h4>
+        <li>Description: {{description}}</li>
+        <li>Language: {{language}}</li>
+        <li>Created: {{created_at}}</li>
+        <li>Last updated: {{updated_at}}</li>
         {{#if watchers_count}}
-          <p>{{watchers_count}} watching this repo</p>
+          <li>{{watchers_count}} watching this repo</li>
         {{/if}}
-      </li>
+      </ul>
     </script>
 
 </head>
@@ -98,7 +98,8 @@
           <li>Graphics (Adobe Photoshop)</li>
           <li>Debugging</li>
           <li>Networking</li>
-          <li>Mobile First Design</li>
+          <li>Mobile First Development</li>
+          <li>Agile Software Development</li>
         </span>
       </ul>
     </div>
@@ -114,6 +115,7 @@
         <li>Git</li>
         <li>Heroku</li>
         <li>Adobe Master Collection</li>
+        <li>MVC Architecture</li>
       </span>
     </ul>
   </div>
@@ -169,10 +171,10 @@
   <script src="/vendor/scripts/highlight.pack.js"></script>
   <script src="/vendor/scripts/page.js"></script>
 
-  <script src="/scripts/model/githubToken.js"></script>
+<script src="/scripts/model/githubToken.js"></script>
 
   <script src="/scripts/model/blogs.js" type="text/Javascript"></script>
-<script src="/scripts/view/mainView.js" type="text/Javascript"></script>
+  <script src="/scripts/view/mainView.js" type="text/Javascript"></script>
   <script src="/scripts/controller/homeController.js"></script>
   <script src="/scripts/controller/articleController.js"></script>
   <script src="/scripts/controller/skillsController.js"></script>
