@@ -5,7 +5,6 @@ const bodyParser = require('body-parser');
 const PORT = process.env.PORT || 3000;
 const app = express();
 const conString = process.env.DATABASE_URL || 'postgres://localhost:5432';
-
 // define which directory we will serve files from
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
