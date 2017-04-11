@@ -55,7 +55,7 @@ margin: 4px;
 nav ul li a{
   font-family: 'Abril Fatface', cursive; color: red;
   font-weight: lighter;
-  font-style: normal;;
+  font-style: normal;
   font-size: 39px;
   width: 100%;
   list-style: none;
@@ -87,7 +87,8 @@ p{
   padding: 	0.938em;
   margin: 30px;
   width: 90%;
-  height: 60%
+  height: 60%;
+  text-indent:10px;
 
 }
 /*.tabContent ul li img {
