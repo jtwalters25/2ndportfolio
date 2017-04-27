@@ -1,7 +1,7 @@
 body {
   min-width: 960px;
   background-color: white;
-  background-image: url("imgs/Megaback_81.png");
+  background-image: url("imgs/Megaback_81 copy.png");
   background-position: 99% 32%;
   background-repeat: no-repeat;
   background-size: auto;
@@ -140,4 +140,8 @@ p::first-letter {
 .contact li, a {
   display: inline;
 
+}
+
+footer{
+  margin-left:5%;
 }
